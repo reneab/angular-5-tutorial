@@ -1,0 +1,27 @@
+<h2>
+  Hello, {{name}}!
+</h2>
+<p>Email: {{email}}</p>
+<p>
+  <i>{{age}} years old</i>
+  <button (click)="increaseAge()">Older?</button>
+  <button (click)="decreaseAge()">Younger?</button>  
+  <b *ngIf="age > 23">(You're old!)</b>
+</p>
+<p>Live in {{adress.street}}, {{adress.city}}</p>
+Hobbies:
+<ul>
+  <li *ngFor="let h of hobbies; let i = index">{{i + 1}}: {{h}} 
+    <button (click)="deleteHobby(i)">X</button></li>
+</ul>
+
+<form (submit)="addHobby(hobby.value)">
+  <label for="new-hobby">Are there more?</label>
+  <input type="text" id="new-hobby" #hobby placeholder="new cool hobby"/>
+  <button type="submit">Add</button>
+</form>
+<br/>
+<form>
+  <label for="new-email">Change the email:</label>
+  <input type="text" id="new-email" placeholder="new email" [(ngModel)]="email" name="email">
+</form>
