@@ -13,21 +13,25 @@ Hobbies:
 <ul>
   <li *ngFor="let h of hobbies; let i = index">{{i + 1}}: {{h}} 
     <button (click)="deleteHobby(i)">X</button></li>
-</ul>
-
-<form (submit)="addHobby(hobby.value)">
-  <label for="new-hobby">Are there more?</label>
-  <input type="text" id="new-hobby" #hobby placeholder="new cool hobby"/>
-  <button type="submit">Add</button>
+  </ul>
+  
+  <form (submit)="addHobby(hobby.value)">
+    <label for="new-hobby">Are there more?</label>
+    <input type="text" id="new-hobby" #hobby placeholder="new cool hobby"/>
+    <button type="submit">Add</button>
 </form>
+<br>
+<button (click)="toggleEdit()">Edit</button>
 <hr/>
 
-<h4>Editing</h4>
-<form>
-  <label for="new-email">Change the email:</label>
-  <input type="text" id="new-email" placeholder="new email" [(ngModel)]="email" name="email">
-</form>
-<hr/>
+<div *ngIf="editing">
+  <h4>Editing</h4>
+  <form>
+    <label for="new-email">New email:</label>
+    <input type="text" id="new-email" placeholder="new email" [(ngModel)]="email" name="email">
+  </form>
+  <hr/>
+</div>
 
 <nav>
   <a routerLink="/posts" routerLinkActive="active">Get user's posts</a>

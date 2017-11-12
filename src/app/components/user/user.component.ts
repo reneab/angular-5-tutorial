@@ -12,10 +12,12 @@ export class UserComponent implements OnInit {
   age: number;
   adress: Adress;
   hobbies: string[];
+  editing: boolean;
 
   constructor() { 
     console.log('launched constructor');
     this.name = 'John Doe';
+    this.editing = false;
   }
 
   ngOnInit() {
@@ -47,6 +49,9 @@ export class UserComponent implements OnInit {
     this.age--;
   }
 
+  toggleEdit() {
+    this.editing = !this.editing;
+  }
 }
 
 interface Adress {
