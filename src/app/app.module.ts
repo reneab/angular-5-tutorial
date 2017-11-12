@@ -8,16 +8,20 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { DataService } from './services/data.service';
 import { PostsComponent } from './components/posts/posts.component';
+import { AboutComponent } from './components/about/about.component';
 
 const appRoutes: Routes = [
-  { path: 'posts', component: PostsComponent }
+  { path: '', component: UserComponent },  
+  { path: 'posts', component: PostsComponent } ,
+  { path: 'about', component: AboutComponent }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    PostsComponent
+    PostsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
