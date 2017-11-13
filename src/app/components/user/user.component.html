@@ -8,6 +8,14 @@
   <button (click)="decreaseAge()">Younger?</button>  
   <b *ngIf="age > 23">(You're old!)</b>
 </p>
+
+<div>Born on: {{dateOfBirth | date: 'shortDate'}} ({{dateOfBirth | date: 'fullDate'}})<br>
+    Current savings: {{savings | currency:'USD' }} (= {{savings * 50 | currency:'PHP':true}})<br>
+    Family name: {{familyName | uppercase}} (code: {{familyName | uppercase | slice:0:3}})<br>
+    BMI: {{ weight / size | number:'2.2-5'}}<br>
+    BMI (%) {{ weight / size | percent}}
+</div>
+
 <p>Live in {{adress.street}}, {{adress.city}}</p>
 Hobbies:
 <ul>

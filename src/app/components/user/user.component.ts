@@ -12,6 +12,11 @@ export class UserComponent implements OnInit {
   age: number;
   adress: Adress;
   hobbies: string[];
+  dateOfBirth: Date = new Date(1988, 11, 7);
+  savings: number = 50;
+  familyName = 'abdallah';
+  weight: number = 70;
+  size: number = 175;
 
   constructor() { 
     console.log('launched constructor');
