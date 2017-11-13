@@ -14,6 +14,7 @@ export class UserComponent implements OnInit {
   age: number;
   adress: Adress;
   hobbies: string[];
+  country: string = 'Lebanon';
   dateOfBirth: Date = new Date(1988, 11, 7);
   savings: number = 50;
   familyName = 'abdallah';
