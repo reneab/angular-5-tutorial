@@ -7,6 +7,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class UserComponent implements OnInit {
+  titleSize: number= 24;
+  isColored: boolean = false;
   name: string;
   email: string;
   age: number;

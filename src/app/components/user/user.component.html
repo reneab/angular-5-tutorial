@@ -1,5 +1,9 @@
 <h2>
-  Hello, {{name}}!
+  <span [ngStyle]="{'font-weight': 'bold', 'font-size': titleSize + 'px'}" 
+        [ngClass]="{'colored': isColored}">Hello, {{name}}!</span>
+  <button (click)="titleSize = titleSize + 1">+</button>
+  <button (click)="titleSize = titleSize - 1">-</button>
+  <button (click)="isColored = !isColored">Color!</button>  
 </h2>
 <p>Email: {{email}}</p>
 <p>
