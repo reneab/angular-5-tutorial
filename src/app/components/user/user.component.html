@@ -1,17 +1,41 @@
 <h2>
-  Hello, {{name}}!
+  <span [ngStyle]="{'font-weight': 'bold', 'font-size': titleSize + 'px'}"
+        [ngClass]="{'colored': isColored}">Hello, {{name}}!</span>
+  <button (click)="titleSize = titleSize + 1">+</button>
+  <button (click)="titleSize = titleSize - 1">-</button>
+  <button (click)="isColored = !isColored">Color!</button>
 </h2>
 <p>Email: {{email}}</p>
 <p>
   <i>{{age}} years old</i>
   <button (click)="increaseAge()">Older?</button>
-  <button (click)="decreaseAge()">Younger?</button>  
+  <button (click)="decreaseAge()">Younger?</button>
   <b *ngIf="age > 23">(You're old!)</b>
 </p>
+
+<div>Born on: {{dateOfBirth | date: 'shortDate'}} ({{dateOfBirth | date: 'fullDate'}})<br>
+    Current savings: {{savings | currency:'USD' }} (= {{savings * 50 | currency:'PHP':true}})<br>
+    Family name: {{familyName | uppercase}} (code: {{familyName | uppercase | slice:0:3}})<br>
+    BMI: {{ weight / size | number:'2.2-5'}}<br>
+    BMI (%) {{ weight / size | percent}}
+    <p>Coming from
+      <span [ngClass]="{'blueText': country == 'USA', 'redText': country == 'Lebanon', 'greenText': country == 'Philippines'}">{{country}}</span>
+      <select [(ngModel)]="country">
+        <option *ngFor="let c of countries">{{c}}</option>
+      </select>
+      <span [ngSwitch]="country">
+        <i *ngSwitchCase="'Lebanon'">Marhaba!</i>
+        <i *ngSwitchCase="'USA'">Howdy!</i>
+        <i *ngSwitchCase="'Philippines'">Maayong aglaw!</i>
+        <i *ngSwitchDefault>Hi!</i>
+      </span>
+    </p>
+</div>
+
 <p>Live in {{adress.street}}, {{adress.city}}</p>
 Hobbies:
 <ul>
-  <li *ngFor="let h of hobbies; let i = index">{{i + 1}}: {{h}} 
+  <li *ngFor="let h of hobbies; let i = index">{{i + 1}}: {{h}}
     <button (click)="deleteHobby(i)">X</button></li>
   </ul>
   
