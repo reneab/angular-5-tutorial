@@ -7,8 +7,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class UserComponent implements OnInit {
-  titleSize: number= 24;
-  isColored: boolean = false;
+  titleSize: number;
+  isColored: boolean;
   name: string;
   email: string;
   age: number;
@@ -18,15 +18,17 @@ export class UserComponent implements OnInit {
   country: string;
   countries: string[];
   dateOfBirth: Date = new Date(1988, 11, 7);
-  savings: number = 50;
+  savings: number;
   familyName = 'abdallah';
-  weight: number = 70;
-  size: number = 175;
+  weight: number;
+  size: number;
 
   constructor() {
     console.log('launched constructor');
-    this.name = 'John Doe';
+    this.name = 'John Doe'; // notice that it will be override in ngOnInit()
     this.editing = false;
+    this.isColored = false;
+    this.titleSize = 24;
   }
 
   ngOnInit() {
@@ -37,10 +39,13 @@ export class UserComponent implements OnInit {
     this.adress = {
       street: 'Nasipit Road',
       city: 'Cebu'
-    }
+    };
     this.hobbies = ['basketball', 'music', 'chill'];
     this.countries = ['Lebanon', 'USA', 'Philippines'];
     this.country = this.countries[0];
+    this.savings = 50;
+    this.weight = 70;
+    this.size = 175;
   }
 
   addHobby(hobby: string) {
@@ -66,6 +71,6 @@ export class UserComponent implements OnInit {
 }
 
 interface Adress {
-  street: string,
-  city: string
+  street: string;
+  city: string;
 }

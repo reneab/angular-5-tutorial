@@ -12,7 +12,7 @@ export class PostsComponent implements OnInit {
 
   posts: Post[];
 
-  constructor(private data: DataService) { 
+  constructor(private data: DataService) {
     this.posts = [];
   }
 
@@ -26,8 +26,8 @@ export class PostsComponent implements OnInit {
 }
 
 interface Post {
-  userId: number,
-  id: number,
-  title: string,
-  body: string
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
 }
