@@ -14,14 +14,15 @@ export class UserComponent implements OnInit {
   age: number;
   adress: Adress;
   hobbies: string[];
-  country: string = 'Lebanon';
+  country: string;
+  countries: string[];
   dateOfBirth: Date = new Date(1988, 11, 7);
   savings: number = 50;
   familyName = 'abdallah';
   weight: number = 70;
   size: number = 175;
 
-  constructor() { 
+  constructor() {
     console.log('launched constructor');
     this.name = 'John Doe';
   }
@@ -34,13 +35,15 @@ export class UserComponent implements OnInit {
     this.adress = {
       street: 'Nasipit Road',
       city: 'Cebu'
-    }    
+    }
     this.hobbies = ['basketball', 'music', 'chill'];
+    this.countries = ['Lebanon', 'USA', 'Philippines'];
+    this.country = this.countries[0];
   }
 
   addHobby(hobby: string) {
     this.hobbies.unshift(hobby);
-    return false;  
+    return false;
   }
 
   deleteHobby(i: number) {
