@@ -1,15 +1,15 @@
 <h2>
   <span [ngStyle]="{'font-weight': 'bold', 'font-size': titleSize + 'px'}"
         [ngClass]="{'colored': isColored}">Hello, {{name}}!</span>
-  <button (click)="titleSize = titleSize + 1">+</button>
-  <button (click)="titleSize = titleSize - 1">-</button>
-  <button (click)="isColored = !isColored">Color!</button>
+  <button mat-mini-fab (click)="titleSize = titleSize + 1">+</button>
+  <button mat-mini-fab (click)="titleSize = titleSize - 1">-</button>
+  <button mat-raised-button color="warn" (click)="isColored = !isColored">Color!</button>
 </h2>
 <p>Email: {{email}}</p>
 <p>
   <i>{{age}} years old</i>
-  <button (click)="increaseAge()">Older?</button>
-  <button (click)="decreaseAge()">Younger?</button>
+  <button mat-raised-button color="primary" (click)="decreaseAge()">Younger?</button>
+  <button mat-raised-button color="warn" (click)="increaseAge()">Older?</button>
   <b *ngIf="age > 23">(You're old!)</b>
 </p>
 
@@ -42,10 +42,15 @@ Hobbies:
   <form (submit)="addHobby(hobby.value)">
     <label for="new-hobby">Are there more?</label>
     <input type="text" id="new-hobby" #hobby placeholder="new cool hobby"/>
-    <button type="submit">Add</button>
+    <button mat-raised-button color="primary" type="submit">Add</button>
 </form>
-<br>
-<button (click)="toggleEdit()">Edit</button>
+
+<p>I am:
+  <mat-checkbox>Lebanese</mat-checkbox>
+  <mat-checkbox>Swiss</mat-checkbox>
+</p>
+
+<mat-button-toggle (click)="toggleEdit()">Edit</mat-button-toggle>
 
 <div *ngIf="editing">
   <hr/>
