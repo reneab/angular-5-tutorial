@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
-import { MyMaterialModule } from './my.material.module'
+import { MyMaterialModule } from './my.material.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { DataService } from './services/data.service';
